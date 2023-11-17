@@ -12,3 +12,4 @@
 8. [Day4_JFJH%20(2)](Day4_JFJH%20(2).java)
 9. [Day4_JFJH%20(3)](Day4_JFJH%20(3).java)
 10. [Day5](Day5.java)
+11. [Day6](Day6.java)
