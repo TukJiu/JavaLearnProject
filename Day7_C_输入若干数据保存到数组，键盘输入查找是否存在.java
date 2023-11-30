@@ -4,31 +4,31 @@ public class C {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		int id[] = new int[10];
-		System.out.println("ÇëÊäÈë°à¼¶Í¬Ñ§µÄ"+id.length+"¸öÑ§ºÅ£¬½øĞĞ±£´æ");
+		System.out.println("è¯·è¾“å…¥ç­çº§åŒå­¦çš„"+id.length+"ä¸ªå­¦å·ï¼Œè¿›è¡Œä¿å­˜");
 		for(int i = 0; i<id.length; i++) {
-			System.out.print("ÇëÊäÈëµÚ"+(i+1)+"¸öÑ§ºÅ£º ");
+			System.out.print("è¯·è¾“å…¥ç¬¬"+(i+1)+"ä¸ªå­¦å·ï¼š ");
 			int temp = input.nextInt();
 			for(int j = 0; j<i; j++) {
 				if(id[j] == temp) {
-					System.out.println("ÄúÊäÈëµÄÑ§ºÅÓĞÖØ¸´£¬ÇëÖØĞÂÊäÈëµ±Ç°Ñ§ºÅ");
+					System.out.println("æ‚¨è¾“å…¥çš„å­¦å·æœ‰é‡å¤ï¼Œè¯·é‡æ–°è¾“å…¥å½“å‰å­¦å·");
 					i--;
 					continue;
 				}
 			}
 			id[i] = temp;
 		}
-		System.out.println("ÇëÊäÈëÄãÒª²éÕÒµÄÑ§ºÅ");
+		System.out.println("è¯·è¾“å…¥ä½ è¦æŸ¥æ‰¾çš„å­¦å·");
 		int inputForFind = input.nextInt();
 		boolean f = false;
 		for(int i = 0; i<id.length; i++) {
 			if(id[i] == inputForFind) {
-				System.out.println("ÄúÊäÈëµÄÑ§ºÅ´æÔÚ£¬ËüµÄÏÂ±êË÷ÒıÎª£º "+i);
+				System.out.println("æ‚¨è¾“å…¥çš„å­¦å·å­˜åœ¨ï¼Œå®ƒçš„ä¸‹æ ‡ç´¢å¼•ä¸ºï¼š "+i);
 				f = true;
 				break;
 			}
 		}
 		if(!f) {
-			System.out.println("ÄúÊäÈëµÄÑ§ºÅ²»´æÔÚ");
+			System.out.println("æ‚¨è¾“å…¥çš„å­¦å·ä¸å­˜åœ¨");
 		}
 		input.close();
 	}
