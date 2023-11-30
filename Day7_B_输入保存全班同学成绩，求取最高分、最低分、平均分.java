@@ -8,18 +8,18 @@ public class B {
 		int max = 0;
 		int min = -1;
 		while(true) {
-			System.out.print("ÊäÈëJava³É¼¨ÒÔ½øĞĞÊı¾İÔËËã£º ");
+			System.out.print("è¾“å…¥Javaæˆç»©ä»¥è¿›è¡Œæ•°æ®è¿ç®—ï¼š ");
 			int t = input.nextInt();
 			if(t<0) break;
 			num += t;
 			times++;
 			if(t>max) max = t;
 			if(t<min) min = t;
-			if(min<0) min = t; //×îĞ¡Öµ³õÊ¼»¯
-			System.out.println("µ±Ç°Java³É¼¨×î¸ß·Ö£º "+max);
-			System.out.println("µ±Ç°Java³É¼¨×îµÍ·Ö£º "+min);
-			System.out.println("µ±Ç°Java³É¼¨Æ½¾ùÖµ£º "+num/times);
-			System.out.println("ÕâÊÇµÚ"+times+"¸öÊı¾İ");
+			if(min<0) min = t; //æœ€å°å€¼åˆå§‹åŒ–
+			System.out.println("å½“å‰Javaæˆç»©æœ€é«˜åˆ†ï¼š "+max);
+			System.out.println("å½“å‰Javaæˆç»©æœ€ä½åˆ†ï¼š "+min);
+			System.out.println("å½“å‰Javaæˆç»©å¹³å‡å€¼ï¼š "+num/times);
+			System.out.println("è¿™æ˜¯ç¬¬"+times+"ä¸ªæ•°æ®");
 			System.out.println();
 		}
 		input.close();
