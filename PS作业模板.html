@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>PS作业模板</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        /*Tags*/
+        .Tag {
+            position: fixed;
+            width: fit-content;
+            height: fit-content;
+            right: 0px;
+            top: 0px;
+            z-index: 100;
+            text-align: center;
+            color: white;
+            background-color: transparent;
+        }
+
+        /*预加载页面*/
+        .PreLoad {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: black;
+            color: white;
+            font-size: 1.8rem;
+        }
+
+        .PreLoad h3 {
+            width: max-content;
+            margin: 3rem auto;
+        }
+
+        .PreLoadBox input {
+            font-size: 1.8rem;
+        }
+
+        .PreLoadBox {
+            width: max-content;
+            height: max-content;
+            margin: 0 auto;
+            outline: white solid 1px;
+            padding: 30px;
+        }
+
+        /*封皮*/
+        .Header {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            color: white;
+            background-color: black;
+            z-index: -2;
+        }
+
+        .Header h3 {
+            width: max-content;
+            margin: 30px auto;
+            font-size: 2rem;
+        }
+
+        .Header h4 {
+            width: max-content;
+            margin: 30px auto;
+            font-size: 1.5rem;
+        }
+
+        /*六张页面*/
+        .Main {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            color: white;
+            background-color: black;
+            z-index: -2;
+        }
+        .Main div {
+            margin: 30px;
+            text-align: center;
+        }
+        /*封底*/
+        .Foot {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            color: white;
+            background-color: black;
+            z-index: -2;
+        }
+        .Foot h3 {
+            width: max-content;
+            margin: 30px auto;
+            font-size: 2rem;
+        }
+
+        .Foot h4 {
+            width: max-content;
+            margin: 30px auto;
+            font-size: 1.5rem;
+        }
+        #F,#Y,#S {
+            position: fixed;
+            opacity: 0.5;
+            z-index: -1;
+        }
+    </style>
+    <script>
+        let P = 0
+        function next() {
+            //F Y S
+            document.querySelector("#F").style.left = Math.random()*window.innerWidth + "px"
+            document.querySelector("#Y").style.left = Math.random()*window.innerWidth + "px"
+            document.querySelector("#S").style.left = Math.random()*window.innerWidth + "px"
+
+            document.querySelector("#F").style.top = Math.random()*window.innerHeight + "px"
+            document.querySelector("#Y").style.top = Math.random()*window.innerHeight + "px"
+            document.querySelector("#S").style.top = Math.random()*window.innerHeight + "px"
+
+            if (P == 0) {
+                if (document.querySelector("#name").value != "" && document.querySelector("#id").value != "" && document.querySelector("#s1Title").value != "" && document.querySelector("#s2Title").value != "" && document.querySelector("#s3Title").value != "" && document.querySelector("#s4Title").value != "" && document.querySelector("#s5Title").value != "" && document.querySelector("#s6Title").value != "" && document.querySelector("#color").value != "") {
+                    document.querySelector("section.PreLoad").style.display = "none"
+                    document.querySelector("section.Header").style.display = "block"
+                    document.querySelector("section.Header h3").innerHTML = document.querySelector("#name").value + "作品宣传册";
+                    document.querySelector("section.Header h4").innerHTML = "作者： " + document.querySelector("#name").value;
+                    document.querySelector("section.Tag h3:nth-child(1)").innerHTML = "软件S23-12 " + document.querySelector("#name").value + " " + document.querySelector("#id").value;
+                    document.querySelector("section.Tag h3:nth-child(2)").innerHTML = "封皮";
+                    let color = document.querySelector("#color").value
+                    let R = color.slice(1, 2);
+                    let G = color.slice(3, 4);
+                    let B = color.slice(5, 6);
+                    R = 256 - parseInt(R, 16);
+                    G = 256 - parseInt(G, 16);
+                    B = 256 - parseInt(B, 16);
+                    let Icolor = `rgb(${R},${G},${B})`
+                    document.querySelector("section.Tag").style.color = Icolor
+                    document.querySelector("section.Header").style.color = Icolor
+                    document.querySelector("section.Header").style.background = color
+                    document.querySelector("section.Main").style.color = Icolor
+                    document.querySelector("section.Main").style.background = color
+                    document.querySelector("section.Foot").style.color = Icolor
+                    document.querySelector("section.Foot").style.background = color
+                    document.querySelector("#F").style.color = Icolor
+                    document.querySelector("#Y").style.color = Icolor
+                    document.querySelector("#S").style.color = Icolor
+                    P++
+                }
+            }else if (P >= 1 && P <= 6) {
+                document.querySelector("section.Header").style.display = "none"
+                document.querySelector("section.Main").style.display = "block"
+                document.querySelector("section.Tag h3:nth-child(2)").innerHTML = document.querySelector(`#s${P}Title`).value;
+                P++
+            } else {
+                document.querySelector("section.Main").style.display = "none"
+                document.querySelector("section.Foot").style.display = "block"
+                document.querySelector("section.Foot h3").innerHTML = document.querySelector("#name").value + "作品宣传册";
+                document.querySelector("section.Foot h4").innerHTML = "作者： " + document.querySelector("#name").value;
+                document.querySelector("section.Tag h3:nth-child(2)").innerHTML = "封底";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="200" id="F">
+        <rect 
+            x="0" 
+            y="0" 
+            width="200" 
+            height="200" 
+            stroke="white" 
+            stroke-width="10" 
+        ></rect>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="200" id="Y">
+        <circle 
+            cx="100" 
+            cy="100" 
+            r="90" 
+            stroke="white" 
+            stroke-width="10"
+            ></circle>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="200" id="S">
+        <polygon 
+              points="0,0 0,150 150,150" 
+              stroke="white" 
+              stroke-width="10"
+          />    
+      </svg>
+    <section class="Tag">
+        <h3>班级姓名学号</h3>
+        <h3>章节或类别</h3>
+    </section>
+    <section class="PreLoad">
+        <h3>在下方输入页面信息</h3>
+        <div class="PreLoadBox">
+            <p>姓名： <input type="text" name="name" id="name" placeholder="姓名"></p>
+            <p>大学号： <input type="text" name="id" id="id" placeholder="大学号"></p>
+            <p>第一章节标题： <input type="text" name="s1Title" id="s1Title" placeholder="第一章节标题"></p>
+            <p>第二章节标题： <input type="text" name="s2Title" id="s2Title" placeholder="第二章节标题"></p>
+            <p>第三章节标题： <input type="text" name="s3Title" id="s3Title" placeholder="第三章节标题"></p>
+            <p>第四章节标题： <input type="text" name="s4Title" id="s4Title" placeholder="第四章节标题"></p>
+            <p>第五章节标题： <input type="text" name="s5Title" id="s5Title" placeholder="第五章节标题"></p>
+            <p>第六章节标题： <input type="text" name="s6Title" id="s6Title" placeholder="第六章节标题"></p>
+            <p>选择主题色： <input type="color" name="color" id="color"></p>
+        </div>
+        <p style="text-align: center; font-size: 1.8rem; margin: 30px;"><input type="button" value="起飞" onclick="next()"
+                style="width: 10rem;font-size: 1.8rem;"></p>
+    </section>
+    <section class="Header" style="display: none;">
+        <h3>***作品宣传册</h3>
+        <h4>作者： 姓名</h4>
+        <img style="width: 500px; height: 500px; margin: 0px auto;" onclick="this.src=window.prompt('输入文件名')">
+        <p style="text-align: center; font-size: 1.8rem; margin: 30px;"><input type="button" value="下一页"
+                onclick="next()" style="width: 10rem;font-size: 1.8rem;"></p>
+    </section>
+    <section class="Main" style="display: none;">
+        <div>
+            <img onclick="this.src=window.prompt('输入文件名')" style="width: 400px; height: 400px;">
+            <img onclick="this.src=window.prompt('输入文件名')" style="width: 400px; height: 400px;">
+            <img onclick="this.src=window.prompt('输入文件名')" style="width: 400px; height: 400px;">
+            <img onclick="this.src=window.prompt('输入文件名')" style="width: 400px; height: 400px;">
+        </div>
+        <p style="text-align: center; font-size: 1.8rem; margin: 30px;"><input type="button" value="下一页"
+                onclick="next()" style="width: 10rem;font-size: 1.8rem;"></p>
+    </section>
+    <section class="Foot" style="display: none;">
+        <h3>***作品宣传册</h3>
+        <h4>作者： 姓名</h4>
+        <img style="width: 300px; height: 70px; margin: 0px auto;" onclick="this.src=window.prompt('输入文件名')">
+    </section>
+</body>
+
+</html>
