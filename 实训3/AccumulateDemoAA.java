@@ -37,15 +37,15 @@ public class AccumulateDemo02 {
 		}
 	}
 	public static void main(String[] args) {
-		O("³ÌĞò¿ªÊ¼ÔËĞĞ");
+		O("ç¨‹åºå¼€å§‹è¿è¡Œ");
 		Scanner src = new Scanner(System.in);
-		O("ÇëÊäÈësum1µÄn£¨1µ½nµÄºÍ£©£º ",true);
+		O("è¯·è¾“å…¥sum1çš„nï¼ˆ1åˆ°nçš„å’Œï¼‰ï¼š ",true);
 		O(""+sum1(src.nextInt()));
-		O("ÇëÊäÈësum2µÄn£¨µ¹ÊıÀÛ¼ÓºÍ£©£º ", true);
+		O("è¯·è¾“å…¥sum2çš„nï¼ˆå€’æ•°ç´¯åŠ å’Œï¼‰ï¼š ", true);
 		O(""+sum2(src.nextInt()));
-		O("ÇëÊäÈësum3µÄn£¨ÌØÊâÀÛ¼ÓºÍ£©£º",true);
+		O("è¯·è¾“å…¥sum3çš„nï¼ˆç‰¹æ®Šç´¯åŠ å’Œï¼‰ï¼š",true);
 		O(""+sum3(src.nextInt()));
 		src.close();
-		O("³ÌĞòÔËĞĞ½áÊø");
+		O("ç¨‹åºè¿è¡Œç»“æŸ");
 	}
 }
